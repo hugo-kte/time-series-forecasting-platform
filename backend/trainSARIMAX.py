@@ -23,7 +23,7 @@ train_size = int(len(series_norm) * TRAIN_RATIO)
 train, test = series_norm[:train_size], series_norm[train_size:]
 
 print("📦 Données prêtes :", len(train), "train |", len(test), "test")
-
+"""""
 # === 4. Entraînement du modèle SARIMAX ===
 print("🔧 Entraînement SARIMAX...")
 model = SARIMAX(train, order=ORDER, seasonal_order=SEASONAL_ORDER, enforce_stationarity=False, enforce_invertibility=False)
@@ -35,7 +35,7 @@ os.makedirs("backend/models", exist_ok=True)
 with open("backend/models/sarimax_model.pkl", "wb") as f:
     pickle.dump(result, f)
 print("💾 Modèle SARIMAX sauvegardé dans backend/models/sarimax_model.pkl")
-
+"""
 # === 6. Rechargement et prédiction ===
 with open("backend/models/sarimax_model.pkl", "rb") as f:
     loaded_model = pickle.load(f)
